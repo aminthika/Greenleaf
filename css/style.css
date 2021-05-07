@@ -1,0 +1,55 @@
+body, html {
+    font-family: Karla;
+    height: 100%;
+    margin: 0;
+    background-color: #eeeeee;
+}
+
+p{
+    font-size: 1.3rem;
+}
+
+h1, h2 {
+    font-weight: 800;
+}
+
+.content {
+    margin: 5%;
+}
+
+.content-title{
+    margin-bottom: 2%;
+    text-align: center;
+}
+
+.content-subtitle {
+    margin-bottom: 2%;
+    margin-top: 2%;
+}
+
+.btn {
+    font-size: 1.3rem;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 20px;
+}
+
+.card {
+    height: 100%;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-footer {
+    background: transparent;
+    border: None;
+    margin-top: auto;
+    text-align: center;
+}
+
+.card-btn {
+    text-align: center;
+}
