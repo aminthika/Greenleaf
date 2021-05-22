@@ -3,6 +3,13 @@
 }
 
 .content {
-    margin: 15%;
+    margin: 20%;
     margin-top: 3%;
+}
+
+.caption {
+    font-style: italic;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    text-align: center;
 }
