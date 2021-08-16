@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from greenleaf import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("", views.home),
+    path("<slug:slug>.html", views.catch_all),
+    path("posts/<slug:slug>.html", views.posts)
 ]
