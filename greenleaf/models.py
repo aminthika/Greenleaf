@@ -8,5 +8,7 @@ class Rewild(models.Model):
 
 class RewildPhoto(models.Model):
     rewild = models.ForeignKey(Rewild, on_delete=models.PROTECT)
-    image = models.ImageField()
+    image = models.ImageField(upload_to="media/")
+
+
         

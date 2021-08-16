@@ -15,11 +15,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.views.generic import TemplateView
+from django.conf import settings
+from django.conf.urls.static import static
+
 from greenleaf import views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", views.home),
+    path("rewild/", views.rewild),
+    path("thank",TemplateView.as_view(template_name="thank.html"), name='thank' ),
     path("<slug:slug>.html", views.catch_all),
     path("posts/<slug:slug>.html", views.posts)
 ]
+
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
