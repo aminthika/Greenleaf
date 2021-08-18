@@ -2,7 +2,7 @@ from django import forms
 
 class RewildForm(forms.Form):
     email_address = forms.EmailField()
-    location_of_the_trees = forms.CharField()
     number_of_trees = forms.IntegerField()
-
-    photo = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}))
+    location_of_the_trees = forms.CharField()
+    
+    photo = forms.FileField(label="Upload a photo of one or more of your plants to confirm their existence\n", widget=forms.ClearableFileInput(attrs={'multiple': True}))
