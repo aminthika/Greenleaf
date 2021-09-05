@@ -2,13 +2,30 @@
 {% block title %} Rewild {% endblock %}
 
 {% block container %}
+<div class="page-header">
+    <h1 class="page-title">REWILD: A VIRTUAL TREE PLANTING CAMPAIGN</h1>
+</div>
 <div class="content">
-        <form method="POST"  enctype="multipart/form-data">
-            {% csrf_token %}
+    <h1 class="content-title">Rewild</h1>
+    <p>Deforestation is one of the greatest contributors to global warming and the extinction of animal species, as well as being an environmental crisis on its own.
+        There are many, many solutions to this problem, but most are out of the hands of the general public. However, there is one answer that stands out, one that we can all contribute to. And that is simply to regrow the trees that were cut down; to plant new trees in their place. To rewild the planet.    
+    </p>
+    <p> Project Rewild is one of many small steps our generation is taking to get to this solution. And it's one of those steps that we can all take, wherever we are. All you have to do is plant a tree - or several - anywhere on this planet, take a photo and register the tree with us.</p>
+    <p>{{ total }} treees planted! Help us reach {{ goal }}.</p>
+    <div class="progress">
+        <div class="progress-bar bg-info" role="progressbar" style="width: {{ percentage }}%" aria-valuenow="{{ percentage }}" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+    {% for rewild in rewilds %}
+    <p>{{ rewild.name}} planted {{ rewild.trees }} tree(s)</p>    
+    {% endfor %}
+    <h2 class="content-subtitle">Register your tree</h2>
+    <form method="POST"  enctype="multipart/form-data">
+        {% csrf_token %}
 
-            {{ form.as_p }}
-            <input type="submit" name="submit">
-        </form>
-    <div>
+        {{ form.as_p }}
+        <input type="submit" value="register your tree">
+    </form>
+    <h6>We appreciate it if you do not spam the form or submit false information and unrelated photographs.</h6>
+<div>
         
 {% endblock %}
