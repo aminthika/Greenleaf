@@ -31,15 +31,6 @@
       }, function(reason) {
         appendPre('error: ' + reason.result.error.message);
       });
-
-      gapi.client.sheets.spreadsheets.values.get({
-      spreadsheetId: spreadsheetId,
-      range: range
-    }).then((response) => {
-      var result = response.result;
-      var numRows = result.values ? result.values.length : 0;
-      appendPre(`${numRows} rows retrieved.`);
-    });
     }
 
     function initClient() {
