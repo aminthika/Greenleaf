@@ -2,7 +2,7 @@ from django.contrib import admin
 from greenleaf.models import Rewild, RewildPhoto
 
 class RewildAdmin(admin.ModelAdmin):
-    list_display = ['name', 'trees', 'location', 'email']
+    list_display = ['trees', 'location', 'email']
 
 class RewildPhotoAdmin(admin.ModelAdmin):
     list_display = ['rewild', 'image']

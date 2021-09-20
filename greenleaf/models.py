@@ -1,6 +1,7 @@
 from django.db import models
 
 class Rewild(models.Model):
+    name = models.CharField(max_length=50)
     email = models.EmailField()
     location = models.CharField(max_length=256)
     trees = models.IntegerField()
@@ -9,6 +10,5 @@ class Rewild(models.Model):
 class RewildPhoto(models.Model):
     rewild = models.ForeignKey(Rewild, on_delete=models.PROTECT)
     image = models.ImageField(upload_to="media/")
-
 
         
