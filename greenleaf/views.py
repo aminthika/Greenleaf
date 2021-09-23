@@ -25,8 +25,8 @@ def rewild(request):
         form = forms.RewildForm(request.POST, request.FILES)
         if form.is_valid():
             rewild = Rewild.objects.create( name=form.cleaned_data['name'],
-            email=form.cleaned_data['email'], location=form.cleaned_data['location'], 
-            trees=form.cleaned_data['trees']),
+                email=form.cleaned_data['email'], location=form.cleaned_data['location'], 
+                trees=form.cleaned_data['trees'])
 
             for file in request.FILES.getlist('photo'):
                 RewildPhoto.objects.create(rewild=rewild, image=file)
@@ -37,7 +37,10 @@ def rewild(request):
     objects = Rewild.objects.all()
     total_trees = Rewild.objects.aggregate(Sum('trees'))['trees__sum']
     goal = 100
-    percentage = total_trees / goal * 100
+    if goal and total_trees:
+        percentage = total_trees / goal * 100
+    else:
+        percentage = 0
     return render(request, "rewild.html", {'form': form, 'rewilds': objects, 'percentage' : percentage, 'goal' : goal, 'total' : total_trees} )
 
 
